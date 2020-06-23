@@ -415,3 +415,8 @@ Object.defineProperty(globalThis, "Buffer", {
   writable: true,
   configurable: true,
 });
+
+type BufferType = Buffer;
+declare global {
+  const Buffer: BufferType;
+}

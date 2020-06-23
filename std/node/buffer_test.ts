@@ -1,5 +1,21 @@
 import { assert, assertEquals, assertThrows } from "../testing/asserts.ts";
-import Buffer from "./buffer.ts";
+import * as all from "./buffer.ts";
+
+Deno.test({
+  name: "buffer exports are expected",
+  fn() {
+    assertEquals(
+      Buffer,
+      all.Buffer,
+      "global Buffer and Buffer export are the same"
+    );
+    assertEquals(
+      Buffer,
+      all.default,
+      "global Buffer and default export are the same"
+    );
+  },
+});
 
 Deno.test({
   name: "alloc fails on negative numbers",
